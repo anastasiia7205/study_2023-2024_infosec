@@ -1,0 +1,11 @@
+import randomimport string
+
+def generate_key(message_length):    return [random.choice(string.ascii_letters + string.digits) for _ in range(message_length)]
+def encrypt_decrypt(text, key):
+    if len(text) != len(key): return "Ключ и сообщение разной длины"     xor_text = ''
+    for i in range(len(text)):        xor_symbol = ord(text[i]) ^ ord(key[i])
+        xor_text += chr(xor_symbol)    return xor_text
+message = "С Новым Годом, друзья!"
+key = generate_key(len(message))print(key)
+encrypted_messge = encrypt_decrypt(message, key)
+encrypt_decrypt(encrypted_messge, key)
